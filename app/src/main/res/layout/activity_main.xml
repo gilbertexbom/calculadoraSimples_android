@@ -20,6 +20,20 @@
             android:layout_height="wrap_content"
             android:src="@drawable/logo" />
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calculadora Simples"
+            android:textAlignment="center"
+            android:textColorHighlight="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <EditText
             android:id="@+id/txtNum1"
             android:layout_width="match_parent"
@@ -63,6 +77,24 @@
             android:layout_height="wrap_content"
             android:text="Limpar"
             />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/rbtSoma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Soma" />
+
+            <RadioButton
+                android:id="@+id/rbtSubtracao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Subtração" />
+        </RadioGroup>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.RadioButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +27,9 @@ class MainActivity : AppCompatActivity() {
         val soma = findViewById<Button>(R.id.btnCalcular)
         val total = findViewById<TextView>(R.id.txtTotal)
         val limpar = findViewById<Button>(R.id.btnLimpar)
+        val rbtSoma = findViewById<RadioButton>(R.id.rbtSoma)
+        val rbtSub = findViewById<RadioButton>(R.id.rbtSubtracao)
+
 
         limpar.setOnClickListener {
             //limpa os campos de texto
@@ -35,15 +39,24 @@ class MainActivity : AppCompatActivity() {
 
             //Atribui o foco ao primeiro campo
             num1.requestFocus()
+
+            //Marcar soma como padrão
+            rbtSoma.isChecked = true
         }
 
         soma.setOnClickListener{
             //Recebe os dados da interface gráfica
             val n1 = num1.text.toString().toDoubleOrNull() ?: 0.00
             val n2 = num2.text.toString().toDoubleOrNull() ?: 0.00
+            var resultado = 0.00
 
-            //Efetua a soma
-            val resultado = n1 + n2
+            if (rbtSoma.isChecked) {
+                //Efetua a soma
+                resultado = n1 + n2
+            } else {
+                //Efetua a subtração
+                resultado = n1 - n2
+            }
 
             //Retorna o resultado na interface gráfica.
             total.text = "$n1 + $n2 = $resultado"
